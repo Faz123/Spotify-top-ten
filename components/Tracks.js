@@ -6,7 +6,7 @@ const Tracks = ({token}) => {
     
     useEffect(() => {
         setLoading(true)
-            fetch('https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=medium_term', {
+            fetch('https://api.spotify.com/v1/me/top/tracks?limit=10&time_range=medium_term', {
             headers :{
                 'Authorization' : `Bearer ${token}`
             }
