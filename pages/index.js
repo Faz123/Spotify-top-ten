@@ -7,7 +7,10 @@ import spotifyLogin from '../lib/spotify-login'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({appID}) {
+const test = process.env.REDIRECT_URL
+
+
+export default function Home({appID, redirect_uri}) {
   return (
     <>
       <Head>
@@ -22,7 +25,7 @@ export default function Home({appID}) {
         <br />
         <h2>Display my top played tracks from the last 6 months</h2>
         <br />
-          <button type="button" onClick={() => spotifyLogin(appID)}>Login</button>
+          <button type="button" onClick={() => spotifyLogin(appID, redirect_uri)}>Login</button>
         </div>
       </main>
     </>
@@ -31,9 +34,12 @@ export default function Home({appID}) {
 
 export async function getServerSideProps() {
      const clientId = process.env.CLIENT_ID
+     const redirect_uri = process.env.REDIRECT_URL
+
      return {
       props: {
-        appID : clientId
+        appID : clientId,
+        redirect_uri : redirect_uri
       } 
      }
 }
