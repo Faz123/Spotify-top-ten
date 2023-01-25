@@ -1,14 +1,18 @@
 import '../styles/globals.css'
-import { Inter } from '@next/font/google'
+import { Inconsolata } from '@next/font/google'
 
 
-const inter = Inter({ subsets: ['latin'] })
+const inconsolata = Inconsolata({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }) {
-  <style jsx global>{`
+  return (
+ <>
+ <style jsx global>{`
         html {
-          font-family: ${inter.style.fontFamily};
+          font-family: ${inconsolata.style.fontFamily};
         }
       `}</style>
-  return <Component {...pageProps} />
+ <Component {...pageProps} />
+ </> 
+ )
 }

@@ -1,11 +1,12 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
+import Image from 'next/image'                        
 import spotifyLogin from '../lib/spotify-login'
 import Tracks from '../components/Tracks'
 import { useEffect, useState } from 'react'
+import styles from '../styles/Totp.module.scss'
+import dynamic from 'next/dynamic'
 
-const inter = Inter({ subsets: ['latin'] })
+const ChartHeader = dynamic(() => import("../components/ChartHeader"), {ssr: false})
 
 
 const getReturnedParamsFromSpotifyAuth = (hash) => {
@@ -38,11 +39,12 @@ export default function Totp() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <div className={inter.className}>
-        <h1>Spotify API Test</h1>
+      <main className={styles.main}>
+        <div>
+        <ChartHeader />
+        <h1>Your Chart</h1>
         <br />
-        <h2>Display my top played tracks from the last 6 months</h2>
+        <h2>My top 10 tracks on Spotify!</h2>
         <br />
         {
          token &&   

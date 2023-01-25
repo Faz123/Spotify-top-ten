@@ -1,0 +1,19 @@
+.track {
+  font-size: 24px;
+  text-transform: uppercase;
+  .separator {
+    background-color: lime;
+    display: inline-block;
+    height: 3px;
+    vertical-align: middle;
+    margin-left: 6px;
+    width: 16px;
+  }
+  .trackName {
+    color: cyan;
+    font-weight: bold;
+  }
+  .artistName {
+    text-transform: capitalize;
+  }
+}

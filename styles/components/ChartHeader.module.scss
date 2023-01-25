@@ -1,0 +1,16 @@
+.header {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  .teletext {
+    background: blue;
+    color: yellow;
+    padding: 0 3rem;
+  }
+  .time {
+    color: yellow;
+  }
+  .page {
+    margin-left: 2rem;
+  }
+}
