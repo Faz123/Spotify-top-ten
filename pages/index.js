@@ -1,11 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import spotifyLogin from '../lib/spotify-login'
 
-
-const inter = Inter({ subsets: ['latin'] })
 
 const test = process.env.REDIRECT_URL
 
@@ -20,7 +17,7 @@ export default function Home({appID, redirect_uri}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={inter.className}>
+        <div>
         <h1>Spotify API Test</h1>
         <br />
         <h2>Display my top played tracks from the last 6 months</h2>
