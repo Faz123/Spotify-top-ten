@@ -2,11 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'                        
 import spotifyLogin from '../lib/spotify-login'
 import Tracks from '../components/Tracks'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import styles from '../styles/Totp.module.scss'
 import dynamic from 'next/dynamic'
 import Title from '../components/Title'
 import Footer from '../components/Footer'
+import {toPng}  from 'html-to-image'
 
 const ChartHeader = dynamic(() => import("../components/ChartHeader"), {ssr: false})
 
@@ -24,6 +25,7 @@ const getReturnedParamsFromSpotifyAuth = (hash) => {
 }
 
 
+
 export default function Totp() {
     
     const [token, setToken] = useState(null)
@@ -33,6 +35,28 @@ export default function Totp() {
             setToken(access_token)
         }
     }, [ token ])
+
+    const domEl = useRef(null)
+
+    const downloadAsImage = async () => {
+    const dataUrl = await toPng(
+      domEl.current, { 
+      backgroundColor: "#000000",
+      style: {
+        padding: "10px, 10px, 10px, 10px"
+      },
+      canvasWidth: 500,
+      canvasHeight: 500
+
+    })
+    
+    // download Image
+    const link = document.createElement('a')
+    link.download = "spotify-teletext.png"
+    link.href = dataUrl;
+    link.click()
+}
+
   return (
     <>
       <Head>
@@ -41,8 +65,8 @@ export default function Totp() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div>
+      <main className={styles.main} i>
+        <div id="main" ref={domEl}>
         <ChartHeader />
         <Title />
         <br />
@@ -55,6 +79,7 @@ export default function Totp() {
         }
         <Footer />
         </div>
+        <button onClick={downloadAsImage}>Download</button>
       </main>
     </>
   )
