@@ -5,6 +5,8 @@ import Tracks from '../components/Tracks'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Totp.module.scss'
 import dynamic from 'next/dynamic'
+import Title from '../components/Title'
+import Footer from '../components/Footer'
 
 const ChartHeader = dynamic(() => import("../components/ChartHeader"), {ssr: false})
 
@@ -42,16 +44,16 @@ export default function Totp() {
       <main className={styles.main}>
         <div>
         <ChartHeader />
-        <h1>Your Chart</h1>
+        <Title />
         <br />
-        <h2>My top 10 tracks on Spotify!</h2>
+        <h2 className={styles.redBorder}>My top 10 tracks on Spotify!</h2>
         <br />
         {
          token &&   
           <Tracks
         token={token} />  
         }
-        
+        <Footer />
         </div>
       </main>
     </>

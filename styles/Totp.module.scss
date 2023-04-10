@@ -1,10 +1,17 @@
+@import "./node_modules/rfs/scss";
 .main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
+
+  padding: 1rem;
   min-height: 100vh;
+}
+
+.redBorder {
+  border-top: 3px solid red;
+  padding-top: 1rem;
+  @include font-size(1.5rem);
 }
 
 /* Mobile */
