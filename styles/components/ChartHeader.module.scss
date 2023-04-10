@@ -1,16 +1,29 @@
+@import "./node_modules/rfs/scss";
 .header {
-  font-size: 24px;
+  @include font-size(1rem);
   display: flex;
   justify-content: space-between;
   .teletext {
     background: blue;
     color: yellow;
-    padding: 0 3rem;
+    text-align: center;
+    @include padding-left(1rem);
+    @include padding-right(1rem);
+    @media screen and (min-width: 768px) {
+      @include padding-left(4rem);
+      @include padding-right(4rem);
+    }
   }
   .time {
     color: yellow;
   }
-  .page {
-    margin-left: 2rem;
+  div {
+    margin: 0 12px;
+  }
+  > div {
+    margin-left: 0;
+  }
+  > div:last-of-type {
+    margin-right: 0;
   }
 }

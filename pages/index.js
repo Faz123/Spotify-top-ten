@@ -3,10 +3,6 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import spotifyLogin from '../lib/spotify-login'
 
-
-const test = process.env.REDIRECT_URL
-
-
 export default function Home({appID, redirect_uri}) {
   return (
     <>

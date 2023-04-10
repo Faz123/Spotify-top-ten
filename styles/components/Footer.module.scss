@@ -1,0 +1,40 @@
+@import "./node_modules/rfs/scss";
+
+.links div {
+  border-top: 3px solid red;
+  display: flex;
+  justify-content: space-around;
+
+  padding-top: 6px;
+}
+.banner {
+  background-color: blue;
+  padding: 6px 0;
+  h3 {
+    @include font-size(2rem);
+    text-align: center;
+    font-weight: 500;
+  }
+}
+
+.shortCuts {
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    li {
+      &:nth-child(1) {
+        color: red;
+      }
+      &:nth-child(2) {
+        color: lime;
+      }
+      &:nth-child(3) {
+        color: yellow;
+      }
+      &:nth-child(4) {
+        color: cyan;
+      }
+    }
+  }
+}
