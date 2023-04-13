@@ -42,12 +42,9 @@ export default function Totp() {
     const dataUrl = await toPng(
       domEl.current, { 
       backgroundColor: "#000000",
-      style: {
-        padding: "10px, 10px, 10px, 10px"
-      },
+      canvasHeight: 500,
       canvasWidth: 500,
-      canvasHeight: 500
-
+     
     })
     
     // download Image
